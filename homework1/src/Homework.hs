@@ -19,3 +19,6 @@ doubleEveryOther = reverse . zipWith double [0..] . reverse
             | index `mod` 2 == 0 = number
             | otherwise = number * 2
 
+sumDigits :: [Integer] -> Integer
+sumDigits = sum . concat . map toDigits
+
