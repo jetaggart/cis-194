@@ -30,5 +30,12 @@ spec = do
         it "adds up all of the digits" $ do
             sumDigits [16,7,12,5] `shouldBe` 22
 
+    describe "validate" $ do
+        it "validates a number that's remainder is 0" $ do
+            validate 4012888888881881 `shouldBe` True
+
+        it "doesn't validate a number that's remainder is not 0" $ do
+            validate 4012888888881882 `shouldBe` False
+
 main :: IO ()
 main = hspec spec

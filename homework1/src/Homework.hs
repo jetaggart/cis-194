@@ -22,3 +22,6 @@ doubleEveryOther = reverse . zipWith double [0..] . reverse
 sumDigits :: [Integer] -> Integer
 sumDigits = sum . concat . map toDigits
 
+validate :: Integer -> Bool
+validate number = calculateSum number `mod` 10 == 0
+    where calculateSum = sumDigits . doubleEveryOther . toDigits
