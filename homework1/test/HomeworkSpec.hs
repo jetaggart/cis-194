@@ -37,5 +37,9 @@ spec = do
         it "doesn't validate a number that's remainder is not 0" $ do
             validate 4012888888881882 `shouldBe` False
 
+    describe "hanoi" $ do
+        it "works for 2 disks on the tower" $ do
+          hanoi 2 "a" "b" "c" `shouldBe` [("a", "c"), ("a", "b"), ("c", "b")]
+
 main :: IO ()
 main = hspec spec
