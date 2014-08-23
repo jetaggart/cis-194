@@ -12,7 +12,7 @@ parseMessage string = case words string of
     LogMessage (Error $ read severity) (read infoNumber) $ unwords message
   ("W":infoNumber:message) ->
     LogMessage Warning (read infoNumber) $ unwords message
-  otherwise -> Unknown string
+  _ -> Unknown string
 
 parse :: String -> [LogMessage]
 parse = map parseMessage . lines

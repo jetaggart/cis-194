@@ -18,6 +18,7 @@ spec = do
     it "parses an unknown message" $ do
       parseMessage "This is not in the right format" `shouldBe` Unknown "This is not in the right format"
 
+
   describe "parse" $ do
     it "parses the first line of error.log correctly" $ do
       result <- testParse parse 1 "data/error.log"
