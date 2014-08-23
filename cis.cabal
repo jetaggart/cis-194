@@ -5,6 +5,8 @@ cabal-version:     >= 1.8
 
 library
   exposed-modules: Homework1
+                 , Homework2.Log
+                 , Homework2.LogAnalysis
 
   hs-source-dirs:  src
 
