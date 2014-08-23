@@ -1,7 +1,7 @@
-module HomeworkSpec where
+module Homework1Spec where
 
 import Test.Hspec
-import Homework
+import Homework1
 
 spec :: Spec
 spec = do
@@ -14,10 +14,6 @@ spec = do
 
         it "handles negative numbers" $ do
             toDigits (-17) `shouldBe` []
-
-    describe "toDigitsRev" $ do
-        it "turns an integer into the reversed array of ints" $ do
-            toDigitsRev 1234 `shouldBe` [4,3,2,1]
 
     describe "doubleEveryOther" $ do
         it "doubles each integer starting from the right" $ do
