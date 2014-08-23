@@ -1,9 +1,8 @@
-
 module Homework2.LogAnalysisSpec where
 
-import Test.Hspec
-import Homework2.Log
-import Homework2.LogAnalysis
+import           Homework2.Log
+import           Homework2.LogAnalysis
+import           Test.Hspec
 
 spec :: Spec
 spec = do
@@ -26,12 +25,12 @@ spec = do
 
     it "parses the second line of error.log correctly" $ do
       (_:result:_) <- testParse parse 2 "data/error.log"
-      
+
       result `shouldBe` LogMessage Info 4681 "ehci 0xf43d000:15: regista14: [0xbffff 0xfed nosabled 00-02] Zonseres: brips byted nored)"
-  
+
     it "parses a warning line of error.log correctly" $ do
       (_:_:result:_) <- testParse parse 3 "data/error.log"
-      
+
       result `shouldBe` LogMessage Warning 3654 "e8] PGTT ASF! 00f00000003.2: 0x000 - 0000: 00009dbfffec00000: Pround/f1743colled"
 
 main :: IO ()
