@@ -1,6 +1,6 @@
 module Homework1 where
 
-import Data.Char (digitToInt)
+import           Data.Char (digitToInt)
 
 toDigits :: Integer -> [Integer]
 toDigits i
