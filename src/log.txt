@@ -1,0 +1,7 @@
+2014-11-28T17:17:36 0 hoogle=
+2014-11-28T17:18:05 0 hoogle=
+2014-11-28T17:18:07 0 hoogle=Insert
+2014-11-28T17:18:09 0 hoogle=insert
+2014-11-28T17:18:11 0 hoogle=foldr
+2014-11-28T17:21:53 0 hoogle=
+2014-11-28T17:21:54 0 hoogle=foldr
