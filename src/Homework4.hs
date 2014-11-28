@@ -1,5 +1,7 @@
 module Homework4 where
 
+import Data.List
+
 fun1 :: [Integer] -> Integer
 fun1 [] = 1
 fun1 (x:xs)
@@ -25,26 +27,37 @@ fun2' n
 
 
 data Tree a = Leaf
-            | Node Integer (Tree a) a (Tree a)
+            | Node Int (Tree a) a (Tree a)
 
             deriving (Show, Eq)
 
 foldTree :: [a] -> Tree a
-foldTree = undefined
+foldTree [] = Leaf
+foldTree (x:xs) = Node (length (left xs)) (foldTree (left xs)) x (foldTree (right xs))
 
-checkTree :: Bool
-checkTree = foldTree "ABCDEFGHIJ" ==
-            Node 3
-            (Node 2
-             (Node 0 Leaf 'F' Leaf)
-             'I'
-             (Node 1 (Node 0 Leaf 'B' Leaf) 'C' Leaf))
-            'J'
-            (Node 2
-             (Node 1 (Node 0 Leaf 'A' Leaf) 'G' Leaf)
-             'H'
-             (Node 1 (Node 0 Leaf 'D' Leaf) 'E' Leaf))
+  where left = map vals . (filter lowerIndices) . listWithIndices
+        right = map vals . (filter higherIndices) . listWithIndices
 
+        vals (_, val) = val
+
+        lowerIndices (index, _) = index < listLength `div` 2
+        higherIndices (index, _) = index >= listLength `div` 2
+
+        listLength = length xs
+        listWithIndices xs = zip (take (length xs) (iterate (+1) 0)) xs
+
+checkTree :: Tree Char
+checkTree = foldTree "ABCDEFGHIJ"
+--             Node 3
+--             (Node 2
+--              (Node 0 Leaf 'F' Leaf)
+--              'I'
+--              (Node 1 (Node 0 Leaf 'B' Leaf) 'C' Leaf))
+--             'J'
+--             (Node 2
+--              (Node 1 (Node 0 Leaf 'A' Leaf) 'G' Leaf)
+--              'H'
+--              (Node 1 (Node 0 Leaf 'D' Leaf) 'E' Leaf))
 
 
 main :: IO ()
