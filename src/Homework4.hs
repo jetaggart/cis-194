@@ -67,6 +67,9 @@ xor = odd . (foldr check 0)
     check True current = current + 1
     check False current = current
 
+map' :: (a -> b) -> [a] -> [b]
+map' f = foldr (\x memo -> memo ++ [(f x)] ) []
+
 main :: IO ()
 main = do
   putStrLn $ (show . fun1) [1, 3, 4, 32, 13, 32, 103]
@@ -83,6 +86,8 @@ main = do
 
   putStrLn $ show checkTree
 
-  putStrLn $ (show . xor) [False, True, False]
-  putStrLn $ (show . xor) [False, True, False, False, True]
+  (putStrLn . show . xor) [False, True, False]
+  (putStrLn . show . xor) [False, True, False, False, True]
+
+  putStrLn . show $ map' even [1, 2, 3, 4, 5]
 
