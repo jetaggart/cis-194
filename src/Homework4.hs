@@ -60,6 +60,13 @@ checkTree = foldTree "ABCDEFGHIJ"
 --              (Node 1 (Node 0 Leaf 'D' Leaf) 'E' Leaf))
 
 
+xor :: [Bool] -> Bool
+xor = odd . (foldr check 0)
+  where
+    check :: Bool -> Integer -> Integer
+    check True current = current + 1
+    check False current = current
+
 main :: IO ()
 main = do
   putStrLn $ (show . fun1) [1, 3, 4, 32, 13, 32, 103]
@@ -75,4 +82,7 @@ main = do
   putStrLn $ (show . fun2') 7
 
   putStrLn $ show checkTree
+
+  putStrLn $ (show . xor) [False, True, False]
+  putStrLn $ (show . xor) [False, True, False, False, True]
 
